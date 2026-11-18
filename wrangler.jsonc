@@ -1,5 +1,6 @@
 {
-  "$schema": "../Tank-Sudda-Website-TypeScript/node_modules/wrangler/config-schema.json",
+  // Cloudflare Workers Builds (connected in the dashboard) deploys every push to main.
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "tank-sudda-maintenance",
   "main": "src/index.js",
   "compatibility_date": "2026-10-01",
@@ -7,8 +8,6 @@
   "preview_urls": false,
   // Catches proxied (orange cloud) hostnames on tanksudda.com. DNS-only (grey cloud) records bypass
   // Cloudflare entirely and never reach this Worker. See src/index.js for how each host is handled.
-  "routes": [
-    { "pattern": "*.tanksudda.com/*", "zone_name": "tanksudda.com" }
-  ],
+  "routes": [{ "pattern": "*.tanksudda.com/*", "zone_name": "tanksudda.com" }],
   "observability": { "enabled": true }
 }
